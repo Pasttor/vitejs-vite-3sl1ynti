@@ -64,7 +64,7 @@
             <i class="fa-brands fa-android text-2xl text-green-400"></i>
         </div>
         <h1 class="text-xl font-bold">Pixel 7 Pro Center</h1>
-        <p class="text-xs text-gray-500 mt-1">Versión V3</p>
+        <p class="text-xs text-gray-500 mt-1">Versión V3.1</p>
     </header>
 
     <main class="w-full max-w-md space-y-5">
@@ -114,6 +114,16 @@
             <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2 ml-1">Sistema Android</h2>
             <div class="glass-panel rounded-2xl overflow-hidden divide-y divide-white/5">
                 
+                <!-- Nuevo Botón Ajustes Generales -->
+                <a href="intent:#Intent;action=android.settings.SETTINGS;end" onclick="checkEnvironment('Ajustes')"
+                   class="flex items-center justify-between p-4 tap-effect hover:bg-white/5">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-gray-700/50 flex items-center justify-center text-gray-300"><i class="fa-solid fa-gear text-sm"></i></div>
+                        <span class="text-sm font-medium">Ajustes Generales</span>
+                    </div>
+                    <i class="fa-solid fa-angle-right text-gray-600 text-xs"></i>
+                </a>
+
                 <a href="intent:#Intent;action=android.settings.WIFI_SETTINGS;end" onclick="checkEnvironment('WiFi')"
                    class="flex items-center justify-between p-4 tap-effect hover:bg-white/5">
                     <div class="flex items-center gap-3">
