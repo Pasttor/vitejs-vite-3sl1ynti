@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Pixel Command Center V3</title>
+    <title>Pixel Command Center V4</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome -->
@@ -64,7 +64,7 @@
             <i class="fa-brands fa-android text-2xl text-green-400"></i>
         </div>
         <h1 class="text-xl font-bold">Pixel 7 Pro Center</h1>
-        <p class="text-xs text-gray-500 mt-1">Versión V3.1</p>
+        <p class="text-xs text-gray-500 mt-1">Versión V4 (Storage Added)</p>
     </header>
 
     <main class="w-full max-w-md space-y-5">
@@ -72,7 +72,7 @@
         <!-- Advertencia si no es móvil -->
         <div id="desktop-warning" class="hidden bg-red-900/30 border border-red-800 text-red-200 text-xs p-3 rounded-xl mb-4 text-center">
             <i class="fa-solid fa-triangle-exclamation mr-1"></i>
-            Estás en PC/Canvas. Pásalo a tu celular para que funcionen los botones.
+            Recuerda abrir este archivo en tu Pixel para que funcionen los botones.
         </div>
 
         <!-- IA & GEMINI -->
@@ -100,7 +100,6 @@
                     <i class="fa-solid fa-microphone text-xl text-blue-300"></i>
                     <span class="text-xs font-medium">Asistente</span>
                 </a>
-                <!-- Cambiado de Lens a Cámara -->
                 <a href="intent:#Intent;package=com.google.android.GoogleCamera;end" onclick="checkEnvironment('Cámara')"
                    class="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-2 tap-effect h-24">
                     <i class="fa-solid fa-camera text-xl text-red-400"></i>
@@ -109,57 +108,69 @@
             </div>
         </section>
 
-        <!-- AJUSTES DEL SISTEMA -->
+        <!-- AJUSTES DEL SISTEMA (Grid Layout para más orden) -->
         <section>
-            <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2 ml-1">Sistema Android</h2>
-            <div class="glass-panel rounded-2xl overflow-hidden divide-y divide-white/5">
+            <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2 ml-1">Ajustes Rápidos</h2>
+            
+            <!-- Botón Principal: Ajustes Generales -->
+            <a href="intent:#Intent;action=android.settings.SETTINGS;end" onclick="checkEnvironment('Ajustes')"
+               class="glass-panel w-full rounded-2xl p-4 flex items-center gap-4 mb-3 tap-effect hover:bg-white/5">
+                <div class="w-10 h-10 rounded-full bg-gray-700/50 flex items-center justify-center text-gray-300">
+                    <i class="fa-solid fa-gear text-lg"></i>
+                </div>
+                <div>
+                    <div class="font-bold text-sm">Configuración General</div>
+                    <div class="text-[10px] text-gray-400">Menú principal</div>
+                </div>
+            </a>
+
+            <!-- Grid de Ajustes Específicos -->
+            <div class="grid grid-cols-2 gap-3">
                 
-                <!-- Nuevo Botón Ajustes Generales -->
-                <a href="intent:#Intent;action=android.settings.SETTINGS;end" onclick="checkEnvironment('Ajustes')"
-                   class="flex items-center justify-between p-4 tap-effect hover:bg-white/5">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-gray-700/50 flex items-center justify-center text-gray-300"><i class="fa-solid fa-gear text-sm"></i></div>
-                        <span class="text-sm font-medium">Ajustes Generales</span>
+                <!-- Almacenamiento (NUEVO) -->
+                <a href="intent:#Intent;action=android.settings.INTERNAL_STORAGE_SETTINGS;end" onclick="checkEnvironment('Almacenamiento')"
+                   class="glass-panel rounded-2xl p-3 flex flex-col items-start gap-2 tap-effect hover:bg-white/5">
+                    <div class="w-8 h-8 rounded-full bg-pink-900/30 flex items-center justify-center text-pink-400">
+                        <i class="fa-solid fa-hard-drive"></i>
                     </div>
-                    <i class="fa-solid fa-angle-right text-gray-600 text-xs"></i>
+                    <span class="text-xs font-medium">Almacenamiento</span>
                 </a>
 
-                <a href="intent:#Intent;action=android.settings.WIFI_SETTINGS;end" onclick="checkEnvironment('WiFi')"
-                   class="flex items-center justify-between p-4 tap-effect hover:bg-white/5">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-blue-900/30 flex items-center justify-center text-blue-400"><i class="fa-solid fa-wifi text-sm"></i></div>
-                        <span class="text-sm font-medium">Wi-Fi</span>
-                    </div>
-                    <i class="fa-solid fa-angle-right text-gray-600 text-xs"></i>
-                </a>
-
-                <!-- Nuevo Botón Bluetooth -->
-                <a href="intent:#Intent;action=android.settings.BLUETOOTH_SETTINGS;end" onclick="checkEnvironment('Bluetooth')"
-                   class="flex items-center justify-between p-4 tap-effect hover:bg-white/5">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-indigo-900/30 flex items-center justify-center text-indigo-400"><i class="fa-brands fa-bluetooth-b text-sm"></i></div>
-                        <span class="text-sm font-medium">Bluetooth</span>
-                    </div>
-                    <i class="fa-solid fa-angle-right text-gray-600 text-xs"></i>
-                </a>
-
-                <a href="intent:#Intent;action=android.settings.NFC_SETTINGS;end" onclick="checkEnvironment('NFC')"
-                   class="flex items-center justify-between p-4 tap-effect hover:bg-white/5">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-orange-900/30 flex items-center justify-center text-orange-400"><i class="fa-brands fa-nfc-symbol text-sm"></i></div>
-                        <span class="text-sm font-medium">NFC / Pagos</span>
-                    </div>
-                    <i class="fa-solid fa-angle-right text-gray-600 text-xs"></i>
-                </a>
-
+                <!-- Batería -->
                 <a href="intent:#Intent;action=android.settings.BATTERY_SAVER_SETTINGS;end" onclick="checkEnvironment('Batería')"
-                   class="flex items-center justify-between p-4 tap-effect hover:bg-white/5">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-green-900/30 flex items-center justify-center text-green-400"><i class="fa-solid fa-battery-half text-sm"></i></div>
-                        <span class="text-sm font-medium">Batería</span>
+                   class="glass-panel rounded-2xl p-3 flex flex-col items-start gap-2 tap-effect hover:bg-white/5">
+                    <div class="w-8 h-8 rounded-full bg-green-900/30 flex items-center justify-center text-green-400">
+                        <i class="fa-solid fa-battery-half"></i>
                     </div>
-                    <i class="fa-solid fa-angle-right text-gray-600 text-xs"></i>
+                    <span class="text-xs font-medium">Batería</span>
                 </a>
+
+                <!-- Wi-Fi -->
+                <a href="intent:#Intent;action=android.settings.WIFI_SETTINGS;end" onclick="checkEnvironment('WiFi')"
+                   class="glass-panel rounded-2xl p-3 flex flex-col items-start gap-2 tap-effect hover:bg-white/5">
+                    <div class="w-8 h-8 rounded-full bg-blue-900/30 flex items-center justify-center text-blue-400">
+                        <i class="fa-solid fa-wifi"></i>
+                    </div>
+                    <span class="text-xs font-medium">Wi-Fi</span>
+                </a>
+
+                <!-- Bluetooth -->
+                <a href="intent:#Intent;action=android.settings.BLUETOOTH_SETTINGS;end" onclick="checkEnvironment('Bluetooth')"
+                   class="glass-panel rounded-2xl p-3 flex flex-col items-start gap-2 tap-effect hover:bg-white/5">
+                    <div class="w-8 h-8 rounded-full bg-indigo-900/30 flex items-center justify-center text-indigo-400">
+                        <i class="fa-brands fa-bluetooth-b"></i>
+                    </div>
+                    <span class="text-xs font-medium">Bluetooth</span>
+                </a>
+
+                 <!-- NFC -->
+                 <a href="intent:#Intent;action=android.settings.NFC_SETTINGS;end" onclick="checkEnvironment('NFC')"
+                 class="glass-panel rounded-2xl p-3 flex flex-col items-start gap-2 tap-effect hover:bg-white/5">
+                  <div class="w-8 h-8 rounded-full bg-orange-900/30 flex items-center justify-center text-orange-400">
+                      <i class="fa-brands fa-nfc-symbol"></i>
+                  </div>
+                  <span class="text-xs font-medium">NFC / Pagos</span>
+              </a>
 
             </div>
         </section>
@@ -167,41 +178,26 @@
         <!-- SECCIÓN WEB APPS (LINKS NORMALES) -->
         <section>
             <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2 ml-1">Versión Web (Navegador)</h2>
-            <div class="grid grid-cols-2 gap-3">
-                <!-- Google Keep Web -->
-                <a href="https://keep.google.com" target="_blank"
-                   class="glass-panel rounded-2xl p-3 flex items-center gap-3 tap-effect hover:bg-white/5">
-                    <div class="w-8 h-8 rounded-full bg-yellow-600/20 flex items-center justify-center text-yellow-400">
-                        <i class="fa-regular fa-lightbulb"></i>
-                    </div>
-                    <span class="text-xs font-medium">Google Keep</span>
+            <div class="glass-panel rounded-2xl overflow-hidden divide-y divide-white/5">
+                <!-- Keep -->
+                <a href="https://keep.google.com" target="_blank" class="flex items-center gap-4 p-3 hover:bg-white/5">
+                    <i class="fa-regular fa-lightbulb text-yellow-400 w-5 text-center"></i>
+                    <span class="text-xs">Google Keep</span>
                 </a>
-
-                <!-- Google Photos Web -->
-                <a href="https://photos.google.com" target="_blank"
-                   class="glass-panel rounded-2xl p-3 flex items-center gap-3 tap-effect hover:bg-white/5">
-                    <div class="w-8 h-8 rounded-full bg-blue-600/20 flex items-center justify-center text-blue-400">
-                        <i class="fa-solid fa-image"></i>
-                    </div>
-                    <span class="text-xs font-medium">Google Fotos</span>
+                <!-- Photos -->
+                <a href="https://photos.google.com" target="_blank" class="flex items-center gap-4 p-3 hover:bg-white/5">
+                    <i class="fa-solid fa-image text-blue-400 w-5 text-center"></i>
+                    <span class="text-xs">Google Fotos</span>
                 </a>
-
-                <!-- YouTube Web -->
-                <a href="https://m.youtube.com" target="_blank"
-                   class="glass-panel rounded-2xl p-3 flex items-center gap-3 tap-effect hover:bg-white/5">
-                    <div class="w-8 h-8 rounded-full bg-red-600/20 flex items-center justify-center text-red-500">
-                        <i class="fa-brands fa-youtube"></i>
-                    </div>
-                    <span class="text-xs font-medium">YouTube</span>
+                <!-- YouTube -->
+                <a href="https://m.youtube.com" target="_blank" class="flex items-center gap-4 p-3 hover:bg-white/5">
+                    <i class="fa-brands fa-youtube text-red-500 w-5 text-center"></i>
+                    <span class="text-xs">YouTube</span>
                 </a>
-
-                <!-- Spotify Web -->
-                <a href="https://open.spotify.com" target="_blank"
-                   class="glass-panel rounded-2xl p-3 flex items-center gap-3 tap-effect hover:bg-white/5">
-                    <div class="w-8 h-8 rounded-full bg-green-600/20 flex items-center justify-center text-green-500">
-                        <i class="fa-brands fa-spotify"></i>
-                    </div>
-                    <span class="text-xs font-medium">Spotify</span>
+                <!-- Spotify -->
+                <a href="https://open.spotify.com" target="_blank" class="flex items-center gap-4 p-3 hover:bg-white/5">
+                    <i class="fa-brands fa-spotify text-green-500 w-5 text-center"></i>
+                    <span class="text-xs">Spotify</span>
                 </a>
             </div>
         </section>
