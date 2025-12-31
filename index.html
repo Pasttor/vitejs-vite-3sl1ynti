@@ -122,47 +122,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 2: HERRAMIENTAS PIXEL (CORREGIDO) -->
-        <section>
-            <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3 ml-1">Herramientas Pixel</h2>
-            <div class="grid grid-cols-4 gap-2">
-                
-                <!-- Calculadora (Intento directo por Componente) -->
-                <a href="intent:#Intent;component=com.google.android.calculator/com.android.calculator2.Calculator;end" onclick="checkEnvironment('Calculadora')"
-                   class="glass-panel aspect-square rounded-2xl flex flex-col items-center justify-center gap-1 tap-effect">
-                    <i class="fa-solid fa-calculator text-blue-300 text-xl"></i>
-                    <span class="text-[9px] text-gray-400">Calc</span>
-                </a>
 
-                <!-- Reloj (Intento directo por Componente) -->
-                <a href="intent:#Intent;component=com.google.android.deskclock/com.android.deskclock.DeskClock;end" onclick="checkEnvironment('Reloj')"
-                   class="glass-panel aspect-square rounded-2xl flex flex-col items-center justify-center gap-1 tap-effect">
-                    <i class="fa-solid fa-clock text-blue-300 text-xl"></i>
-                    <span class="text-[9px] text-gray-400">Reloj</span>
-                </a>
-
-                <!-- Grabadora (Acción de sistema RECORD_SOUND) -->
-                <a href="intent:#Intent;action=android.provider.MediaStore.RECORD_SOUND;end" onclick="checkEnvironment('Grabadora')"
-                   class="glass-panel aspect-square rounded-2xl flex flex-col items-center justify-center gap-1 tap-effect">
-                    <i class="fa-solid fa-microphone-lines text-red-400 text-xl"></i>
-                    <span class="text-[9px] text-gray-400">Voz</span>
-                </a>
-
-                <!-- Files Nativo (Acción VIEW_DOWNLOADS) -->
-                <a href="intent:#Intent;action=android.intent.action.VIEW_DOWNLOADS;end" onclick="checkEnvironment('Archivos')"
-                   class="glass-panel aspect-square rounded-2xl flex flex-col items-center justify-center gap-1 tap-effect">
-                    <i class="fa-solid fa-folder text-yellow-400 text-xl"></i>
-                    <span class="text-[9px] text-gray-400">Archivos</span>
-                </a>
-
-                <!-- Capturas (Abre Galería/Imágenes) -->
-                <a href="intent:#Intent;action=android.intent.action.VIEW;type=image/*;end" onclick="checkEnvironment('Capturas')"
-                   class="glass-panel col-span-4 flex items-center justify-center gap-3 p-3 rounded-2xl tap-effect mt-1">
-                    <i class="fa-solid fa-images text-purple-400"></i>
-                    <span class="text-xs font-bold">Ver Capturas / Galería</span>
-                </a>
-            </div>
-        </section>
 
         <!-- SECCIÓN 3: AJUSTES SISTEMA -->
         <section>
@@ -177,6 +137,12 @@
                 <span class="text-xs font-bold">Configuración General</span>
                 <i class="fa-solid fa-angle-right text-gray-600 text-xs ml-auto pr-2"></i>
             </a>
+                            <!-- Capturas (Abre Galería/Imágenes) -->
+                <a href="intent:#Intent;action=android.intent.action.VIEW;type=image/*;end" onclick="checkEnvironment('Capturas')"
+                   class="glass-panel col-span-4 flex items-center justify-center gap-3 p-3 rounded-2xl tap-effect mt-1">
+                    <i class="fa-solid fa-images text-purple-400"></i>
+                    <span class="text-xs font-bold">Ver Capturas / Galería</span>
+                </a>
 
             <!-- Grid Ajustes -->
             <div class="grid grid-cols-2 gap-2">
