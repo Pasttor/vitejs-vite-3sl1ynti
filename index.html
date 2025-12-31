@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Pixel Command Center V4</title>
+    <title>Pixel Command Center Final</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome -->
@@ -34,6 +34,7 @@
         .gemini-gradient {
             background: linear-gradient(135deg, #4E75F6 0%, #8E44AD 100%);
             box-shadow: 0 4px 15px rgba(78, 117, 246, 0.3);
+            border: none;
         }
 
         /* Alerta de error personalizada */
@@ -63,8 +64,8 @@
         <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-900 border border-gray-700 mb-3 shadow-lg shadow-green-900/20">
             <i class="fa-brands fa-android text-2xl text-green-400"></i>
         </div>
-        <h1 class="text-xl font-bold">Pixel 7 Pro Center</h1>
-        <p class="text-xs text-gray-500 mt-1">Versión V4 (Storage Added)</p>
+        <h1 class="text-xl font-bold">Pixel 7 Pro</h1>
+        <p class="text-xs text-gray-500 mt-1">Command Center</p>
     </header>
 
     <main class="w-full max-w-md space-y-5">
@@ -72,43 +73,35 @@
         <!-- Advertencia si no es móvil -->
         <div id="desktop-warning" class="hidden bg-red-900/30 border border-red-800 text-red-200 text-xs p-3 rounded-xl mb-4 text-center">
             <i class="fa-solid fa-triangle-exclamation mr-1"></i>
-            Recuerda abrir este archivo en tu Pixel para que funcionen los botones.
+            Recuerda abrir este archivo en tu celular.
         </div>
 
-        <!-- IA & GEMINI -->
+        <!-- SECCIÓN PRINCIPAL: GEMINI Y CÁMARA -->
         <section>
-            <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2 ml-1">Inteligencia Artificial</h2>
+            <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2 ml-1">Principal</h2>
             
-            <a href="intent:#Intent;package=com.google.android.apps.bard;end" onclick="checkEnvironment('Gemini App')"
-               class="gemini-gradient w-full rounded-2xl p-4 flex items-center justify-between tap-effect transition-all mb-3 relative overflow-hidden group">
-                <div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div class="flex items-center gap-3 relative z-10">
-                    <div class="bg-white/20 w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm">
-                        <i class="fa-solid fa-wand-magic-sparkles text-white"></i>
-                    </div>
-                    <div>
-                        <div class="font-bold text-white">Abrir Gemini</div>
-                        <div class="text-[10px] text-white/80">Requiere App Oficial</div>
-                    </div>
-                </div>
-                <i class="fa-solid fa-chevron-right text-white/60"></i>
-            </a>
-
             <div class="grid grid-cols-2 gap-3">
-                <a href="intent:#Intent;action=android.intent.action.VOICE_COMMAND;end" onclick="checkEnvironment('Asistente')"
-                   class="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-2 tap-effect h-24">
-                    <i class="fa-solid fa-microphone text-xl text-blue-300"></i>
-                    <span class="text-xs font-medium">Asistente</span>
+                <!-- Botón Gemini (Web) -->
+                <a href="https://gemini.google.com" target="_blank"
+                   class="gemini-gradient rounded-2xl p-4 flex flex-col items-center justify-center gap-2 tap-effect h-32 text-center shadow-lg">
+                    <div class="bg-white/20 w-10 h-10 rounded-full flex items-center justify-center backdrop-blur-sm mb-1">
+                        <i class="fa-solid fa-wand-magic-sparkles text-white text-lg"></i>
+                    </div>
+                    <span class="text-lg font-bold text-white">Gemini</span>
                 </a>
-                <a href="intent:#Intent;package=com.google.android.GoogleCamera;end" onclick="checkEnvironment('Cámara')"
-                   class="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-2 tap-effect h-24">
-                    <i class="fa-solid fa-camera text-xl text-red-400"></i>
-                    <span class="text-xs font-medium">Cámara Pixel</span>
+
+                <!-- Botón Cámara (Link Vercel) -->
+                <a href="https://vercel.com/rasttors-projects/camara/BZNGNJfzk9gesW3sTtAEA3boGvR5" target="_blank"
+                   class="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-2 tap-effect h-32 text-center">
+                    <div class="bg-red-500/20 w-10 h-10 rounded-full flex items-center justify-center mb-1 border border-red-500/30">
+                        <i class="fa-solid fa-camera text-red-400 text-lg"></i>
+                    </div>
+                    <span class="text-lg font-bold">Cámara</span>
                 </a>
             </div>
         </section>
 
-        <!-- AJUSTES DEL SISTEMA (Grid Layout para más orden) -->
+        <!-- AJUSTES DEL SISTEMA -->
         <section>
             <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2 ml-1">Ajustes Rápidos</h2>
             
@@ -120,14 +113,15 @@
                 </div>
                 <div>
                     <div class="font-bold text-sm">Configuración General</div>
-                    <div class="text-[10px] text-gray-400">Menú principal</div>
+                    <div class="text-[10px] text-gray-400">Sistema Android</div>
                 </div>
+                <i class="fa-solid fa-angle-right text-gray-600 text-xs ml-auto"></i>
             </a>
 
-            <!-- Grid de Ajustes Específicos -->
+            <!-- Grid de Ajustes Específicos (Sin NFC) -->
             <div class="grid grid-cols-2 gap-3">
                 
-                <!-- Almacenamiento (NUEVO) -->
+                <!-- Almacenamiento -->
                 <a href="intent:#Intent;action=android.settings.INTERNAL_STORAGE_SETTINGS;end" onclick="checkEnvironment('Almacenamiento')"
                    class="glass-panel rounded-2xl p-3 flex flex-col items-start gap-2 tap-effect hover:bg-white/5">
                     <div class="w-8 h-8 rounded-full bg-pink-900/30 flex items-center justify-center text-pink-400">
@@ -163,21 +157,12 @@
                     <span class="text-xs font-medium">Bluetooth</span>
                 </a>
 
-                 <!-- NFC -->
-                 <a href="intent:#Intent;action=android.settings.NFC_SETTINGS;end" onclick="checkEnvironment('NFC')"
-                 class="glass-panel rounded-2xl p-3 flex flex-col items-start gap-2 tap-effect hover:bg-white/5">
-                  <div class="w-8 h-8 rounded-full bg-orange-900/30 flex items-center justify-center text-orange-400">
-                      <i class="fa-brands fa-nfc-symbol"></i>
-                  </div>
-                  <span class="text-xs font-medium">NFC / Pagos</span>
-              </a>
-
             </div>
         </section>
 
         <!-- SECCIÓN WEB APPS (LINKS NORMALES) -->
         <section>
-            <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2 ml-1">Versión Web (Navegador)</h2>
+            <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2 ml-1">Accesos Web</h2>
             <div class="glass-panel rounded-2xl overflow-hidden divide-y divide-white/5">
                 <!-- Keep -->
                 <a href="https://keep.google.com" target="_blank" class="flex items-center gap-4 p-3 hover:bg-white/5">
