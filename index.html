@@ -93,7 +93,7 @@
         <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-900 border border-gray-700 mb-3 shadow-lg shadow-green-900/20">
             <i class="fa-brands fa-android text-2xl text-green-400"></i>
         </div>
-        <h1 class="text-xl font-bold">Master Edition<</h1>
+        <h1 class="text-xl font-bold">Master Edition</h1>
 
     </header>
 
@@ -137,12 +137,7 @@
                 <span class="text-xs font-bold">Configuración General</span>
                 <i class="fa-solid fa-angle-right text-gray-600 text-xs ml-auto pr-2"></i>
             </a>
-                            <!-- Capturas (Abre Galería/Imágenes) -->
-                <a href="intent:#Intent;action=android.intent.action.VIEW;type=image/*;end" onclick="checkEnvironment('Capturas')"
-                   class="glass-panel col-span-4 flex items-center justify-center gap-3 p-3 rounded-2xl tap-effect mt-1">
-                    <i class="fa-solid fa-images text-purple-400"></i>
-                    <span class="text-xs font-bold">Ver Capturas / Galería</span>
-                </a>
+
 
             <!-- Grid Ajustes -->
             <div class="grid grid-cols-2 gap-2">
@@ -163,6 +158,12 @@
                     <i class="fa-solid fa-hard-drive text-pink-400 text-sm"></i> <span class="text-xs">Espacio</span>
                 </a>
             </div>
+                                        <!-- Capturas (Abre Galería/Imágenes) -->
+                <a href="intent:#Intent;action=android.intent.action.VIEW;type=image/*;end" onclick="checkEnvironment('Capturas')"
+                   class="glass-panel col-span-4 flex items-center justify-center gap-3 p-3 rounded-2xl tap-effect mt-1">
+                    <i class="fa-solid fa-images text-purple-400"></i>
+                    <span class="text-xs font-bold">Ver Capturas / Galería</span>
+                </a>
         </section>
 
         <!-- SECCIÓN 4: ACCESOS WEB (Grid App Drawer) -->
