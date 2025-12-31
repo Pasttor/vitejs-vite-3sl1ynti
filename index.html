@@ -8,7 +8,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#000000">
     
-    <title>Pixel Master Center</title>
+    <title>Master Center</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -93,8 +93,8 @@
         <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-900 border border-gray-700 mb-3 shadow-lg shadow-green-900/20">
             <i class="fa-brands fa-android text-2xl text-green-400"></i>
         </div>
-        <h1 class="text-xl font-bold">Pixel 7 Pro</h1>
-        <p class="text-xs text-gray-500 mt-1">Master Edition</p>
+        <h1 class="text-xl font-bold">Master Edition</h1>
+        
     </header>
 
     <main class="w-full max-w-md space-y-6">
@@ -122,34 +122,34 @@
             </div>
         </section>
 
-        <!-- SECCIÓN 2: HERRAMIENTAS PIXEL (NUEVA) -->
+        <!-- SECCIÓN 2: HERRAMIENTAS PIXEL (CORREGIDO) -->
         <section>
             <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3 ml-1">Herramientas Pixel</h2>
             <div class="grid grid-cols-4 gap-2">
                 
-                <!-- Calculadora -->
-                <a href="intent:#Intent;package=com.google.android.calculator;end" onclick="checkEnvironment('Calculadora')"
+                <!-- Calculadora (Usa Categoría APP_CALCULATOR) -->
+                <a href="intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.APP_CALCULATOR;end" onclick="checkEnvironment('Calculadora')"
                    class="glass-panel aspect-square rounded-2xl flex flex-col items-center justify-center gap-1 tap-effect">
                     <i class="fa-solid fa-calculator text-blue-300 text-xl"></i>
                     <span class="text-[9px] text-gray-400">Calc</span>
                 </a>
 
-                <!-- Reloj -->
-                <a href="intent:#Intent;package=com.google.android.deskclock;end" onclick="checkEnvironment('Reloj')"
+                <!-- Reloj (Usa Acción SHOW_ALARMS) -->
+                <a href="intent:#Intent;action=android.intent.action.SHOW_ALARMS;end" onclick="checkEnvironment('Reloj')"
                    class="glass-panel aspect-square rounded-2xl flex flex-col items-center justify-center gap-1 tap-effect">
                     <i class="fa-solid fa-clock text-blue-300 text-xl"></i>
                     <span class="text-[9px] text-gray-400">Reloj</span>
                 </a>
 
-                <!-- Grabadora -->
-                <a href="intent:#Intent;package=com.google.android.apps.recorder;end" onclick="checkEnvironment('Grabadora')"
+                <!-- Grabadora (Usa Launcher Explicit) -->
+                <a href="intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=com.google.android.apps.recorder;end" onclick="checkEnvironment('Grabadora')"
                    class="glass-panel aspect-square rounded-2xl flex flex-col items-center justify-center gap-1 tap-effect">
                     <i class="fa-solid fa-microphone-lines text-red-400 text-xl"></i>
                     <span class="text-[9px] text-gray-400">Voz</span>
                 </a>
 
-                <!-- Files by Google -->
-                <a href="intent:#Intent;package=com.google.android.apps.nbu.files;end" onclick="checkEnvironment('Files')"
+                <!-- Files by Google (Usa Launcher Explicit) -->
+                <a href="intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=com.google.android.apps.nbu.files;end" onclick="checkEnvironment('Files')"
                    class="glass-panel aspect-square rounded-2xl flex flex-col items-center justify-center gap-1 tap-effect">
                     <i class="fa-solid fa-folder-open text-yellow-400 text-xl"></i>
                     <span class="text-[9px] text-gray-400">Files</span>
