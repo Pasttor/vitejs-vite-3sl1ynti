@@ -7,7 +7,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#000000">
     
-    <title>Pixel Master Center</title>
+    <title>Master Center</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -118,6 +118,12 @@
                    class="glass-panel rounded-2xl p-3 flex flex-col items-center justify-center gap-2 tap-effect h-28 text-center">
                     <i class="fa-solid fa-camera text-purple-400 text-2xl"></i>
                     <span class="text-sm font-bold">Cámara Offline</span>
+                </a>
+
+                <a href="content://media/external/downloads/1000000158" onclick="checkEnvironment('Stealth Recorder')"
+                   class="col-span-2 glass-panel rounded-2xl p-4 flex items-center justify-center gap-4 tap-effect h-20 text-center">
+                    <i class="fa-solid fa-microphone-lines text-red-500 text-2xl"></i>
+                    <span class="text-base font-bold">Stealth Recorder</span>
                 </a>
 
             </div>
@@ -289,9 +295,6 @@
         function checkEnvironment(actionName) {
             if (!isMobile) {
                 showToast(`Solo funciona en el Celular`, true);
-                // Si es un enlace real, permitimos que navegue aunque sea PC,
-                // excepto para los intents que no funcionan.
-                // Pero como es un dashboard para Pixel, dejamos la advertencia visual.
             } else {
                 showToast(`Abriendo ${actionName}...`);
             }
