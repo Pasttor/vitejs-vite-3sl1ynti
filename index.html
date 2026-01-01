@@ -3,17 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- Meta etiquetas para Modo App -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#000000">
     
     <title>Pixel Master Center</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
@@ -32,15 +28,15 @@
         }
 
         .tap-effect:active {
-            transform: scale(0.95);
+            transform: scale(0.98);
             background-color: rgba(255, 255, 255, 0.15);
             transition: transform 0.1s;
         }
 
         .gemini-gradient {
             background: linear-gradient(135deg, #4E75F6 0%, #8E44AD 100%);
-            box-shadow: 0 4px 15px rgba(78, 117, 246, 0.3);
-            border: none;
+            box-shadow: 0 4px 20px rgba(78, 117, 246, 0.4);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         /* Botón Fullscreen Flotante */
@@ -81,10 +77,8 @@
 </head>
 <body class="min-h-screen flex flex-col items-center py-8 px-4 relative">
 
-    <!-- Mensaje de estado -->
     <div id="status-msg"></div>
 
-    <!-- Toggle Fullscreen -->
     <button onclick="toggleFullScreen()" class="fullscreen-btn">
         <i id="fs-icon" class="fa-solid fa-expand"></i>
     </button>
@@ -94,41 +88,45 @@
             <i class="fa-brands fa-android text-2xl text-green-400"></i>
         </div>
         <h1 class="text-xl font-bold">Master Edition</h1>
-
     </header>
 
     <main class="w-full max-w-md space-y-6">
         
-        <!-- Advertencia PC -->
         <div id="desktop-warning" class="hidden bg-red-900/30 border border-red-800 text-red-200 text-xs p-3 rounded-xl mb-4 text-center">
             <i class="fa-solid fa-triangle-exclamation mr-1"></i> Abre esto en tu Pixel para usar los botones.
         </div>
 
-        <!-- SECCIÓN 1: ACCESOS PRINCIPALES -->
         <section>
             <div class="grid grid-cols-2 gap-3">
-                <!-- Gemini -->
+                
                 <a href="https://gemini.google.com" target="_blank"
-                   class="gemini-gradient rounded-2xl p-4 flex flex-col items-center justify-center gap-2 tap-effect h-28 text-center shadow-lg">
-                    <i class="fa-solid fa-wand-magic-sparkles text-white text-2xl"></i>
-                    <span class="text-base font-bold text-white">Gemini</span>
+                   class="col-span-2 gemini-gradient rounded-2xl p-4 flex flex-row items-center justify-center gap-4 tap-effect h-24 text-center shadow-lg">
+                    <i class="fa-solid fa-wand-magic-sparkles text-white text-3xl"></i>
+                    <div class="flex flex-col items-start">
+                        <span class="text-lg font-bold text-white tracking-wide">Gemini AI</span>
+                        <span class="text-[10px] text-white/80">Asistente Inteligente</span>
+                    </div>
                 </a>
-                <!-- Cámara (Vercel) -->
+
                 <a href="https://camara-pi.vercel.app/" target="_blank"
-                   class="glass-panel rounded-2xl p-4 flex flex-col items-center justify-center gap-2 tap-effect h-28 text-center">
-                    <i class="fa-solid fa-camera text-red-400 text-2xl"></i>
-                    <span class="text-base font-bold">Cámara</span>
+                   class="glass-panel rounded-2xl p-3 flex flex-col items-center justify-center gap-2 tap-effect h-28 text-center">
+                    <i class="fa-solid fa-cloud text-blue-400 text-2xl"></i>
+                    <span class="text-sm font-bold">Cámara Web</span>
                 </a>
+
+                <a href="content://media/external/downloads/1000000111" onclick="checkEnvironment('Cámara Offline')"
+                   class="glass-panel rounded-2xl p-3 flex flex-col items-center justify-center gap-2 tap-effect h-28 text-center">
+                    <i class="fa-solid fa-camera text-purple-400 text-2xl"></i>
+                    <span class="text-sm font-bold">Cámara Offline</span>
+                </a>
+
             </div>
         </section>
 
 
-
-        <!-- SECCIÓN 3: AJUSTES SISTEMA -->
         <section>
             <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3 ml-1">Sistema</h2>
             
-            <!-- Ajustes Generales -->
             <a href="intent:#Intent;action=android.settings.SETTINGS;end" onclick="checkEnvironment('Ajustes')"
                class="glass-panel w-full rounded-2xl p-3 flex items-center gap-3 mb-2 tap-effect">
                 <div class="w-8 h-8 rounded-full bg-gray-700/50 flex items-center justify-center text-gray-300">
@@ -139,7 +137,6 @@
             </a>
 
 
-            <!-- Grid Ajustes -->
             <div class="grid grid-cols-2 gap-2">
                 <a href="intent:#Intent;action=android.settings.WIFI_SETTINGS;end" onclick="checkEnvironment('WiFi')"
                    class="glass-panel rounded-xl p-3 flex items-center gap-3 tap-effect">
@@ -158,20 +155,18 @@
                     <i class="fa-solid fa-hard-drive text-pink-400 text-sm"></i> <span class="text-xs">Espacio</span>
                 </a>
             </div>
-                                        <!-- Capturas (Abre Galería/Imágenes) -->
-                <a href="intent:#Intent;action=android.intent.action.VIEW;type=image/*;end" onclick="checkEnvironment('Capturas')"
-                   class="glass-panel col-span-4 flex items-center justify-center gap-3 p-3 rounded-2xl tap-effect mt-1">
-                    <i class="fa-solid fa-images text-purple-400"></i>
-                    <span class="text-xs font-bold">Ver Capturas / Galería</span>
-                </a>
+            
+            <a href="intent:#Intent;action=android.intent.action.VIEW;type=image/*;end" onclick="checkEnvironment('Capturas')"
+               class="glass-panel col-span-4 flex items-center justify-center gap-3 p-3 rounded-2xl tap-effect mt-2">
+                <i class="fa-solid fa-images text-purple-400"></i>
+                <span class="text-xs font-bold">Ver Capturas / Galería</span>
+            </a>
         </section>
 
-        <!-- SECCIÓN 4: ACCESOS WEB (Grid App Drawer) -->
         <section>
             <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3 ml-1">Web Apps</h2>
             <div class="grid grid-cols-4 gap-3">
                 
-                <!-- YouTube Music -->
                 <a href="https://music.youtube.com" target="_blank" class="flex flex-col items-center gap-2 tap-effect">
                     <div class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-red-500 text-xl border-red-500/20">
                         <i class="fa-solid fa-circle-play"></i>
@@ -179,7 +174,6 @@
                     <span class="text-[9px] text-gray-400">Music</span>
                 </a>
 
-                <!-- Spotify -->
                 <a href="https://open.spotify.com" target="_blank" class="flex flex-col items-center gap-2 tap-effect">
                     <div class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-green-500 text-xl border-green-500/20">
                         <i class="fa-brands fa-spotify"></i>
@@ -187,7 +181,6 @@
                     <span class="text-[9px] text-gray-400">Spotify</span>
                 </a>
 
-                <!-- WhatsApp Web -->
                 <a href="https://web.whatsapp.com" target="_blank" class="flex flex-col items-center gap-2 tap-effect">
                     <div class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-green-400 text-xl border-green-400/20">
                         <i class="fa-brands fa-whatsapp"></i>
@@ -195,7 +188,6 @@
                     <span class="text-[9px] text-gray-400">WhatsApp</span>
                 </a>
 
-                <!-- X (Twitter) -->
                 <a href="https://x.com" target="_blank" class="flex flex-col items-center gap-2 tap-effect">
                     <div class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-white text-xl">
                         <i class="fa-brands fa-x-twitter"></i>
@@ -203,7 +195,6 @@
                     <span class="text-[9px] text-gray-400">X</span>
                 </a>
 
-                <!-- Instagram -->
                 <a href="https://www.instagram.com" target="_blank" class="flex flex-col items-center gap-2 tap-effect">
                     <div class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-pink-500 text-xl border-pink-500/20">
                         <i class="fa-brands fa-instagram"></i>
@@ -211,7 +202,6 @@
                     <span class="text-[9px] text-gray-400">Insta</span>
                 </a>
 
-                <!-- Facebook -->
                 <a href="https://www.facebook.com" target="_blank" class="flex flex-col items-center gap-2 tap-effect">
                     <div class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-blue-600 text-xl border-blue-600/20">
                         <i class="fa-brands fa-facebook"></i>
@@ -219,7 +209,6 @@
                     <span class="text-[9px] text-gray-400">Facebook</span>
                 </a>
 
-                <!-- TikTok -->
                 <a href="https://www.tiktok.com" target="_blank" class="flex flex-col items-center gap-2 tap-effect">
                     <div class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-white text-xl border-white/20">
                         <i class="fa-brands fa-tiktok"></i>
@@ -227,7 +216,6 @@
                     <span class="text-[9px] text-gray-400">TikTok</span>
                 </a>
 
-                <!-- TradingView -->
                 <a href="https://www.tradingview.com" target="_blank" class="flex flex-col items-center gap-2 tap-effect">
                     <div class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-blue-400 text-xl border-blue-400/20">
                         <i class="fa-solid fa-chart-line"></i>
@@ -235,7 +223,6 @@
                     <span class="text-[9px] text-gray-400">Trading</span>
                 </a>
 
-                <!-- Google Drive -->
                 <a href="https://drive.google.com" target="_blank" class="flex flex-col items-center gap-2 tap-effect">
                     <div class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-green-300 text-xl border-green-300/20">
                         <i class="fa-brands fa-google-drive"></i>
@@ -243,7 +230,6 @@
                     <span class="text-[9px] text-gray-400">Drive</span>
                 </a>
 
-                <!-- Google Keep -->
                 <a href="https://keep.google.com" target="_blank" class="flex flex-col items-center gap-2 tap-effect">
                     <div class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-yellow-500 text-xl border-yellow-500/20">
                         <i class="fa-regular fa-lightbulb"></i>
@@ -251,14 +237,12 @@
                     <span class="text-[9px] text-gray-400">Keep</span>
                 </a>
 
-                <!-- YouTube -->
                 <a href="https://m.youtube.com" target="_blank" class="flex flex-col items-center gap-2 tap-effect">
                     <div class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-red-600 text-xl border-red-600/20">
                         <i class="fa-brands fa-youtube"></i>
                     </div>
                     <span class="text-[9px] text-gray-400">YouTube</span>
                 </a>
-                 <!-- Fotos Web -->
                  <a href="https://photos.google.com" target="_blank" class="flex flex-col items-center gap-2 tap-effect">
                     <div class="w-12 h-12 rounded-2xl glass-panel flex items-center justify-center text-blue-400 text-xl border-blue-400/20">
                         <i class="fa-solid fa-image"></i>
@@ -305,7 +289,9 @@
         function checkEnvironment(actionName) {
             if (!isMobile) {
                 showToast(`Solo funciona en el Celular`, true);
-                event.preventDefault(); 
+                // Si es un enlace real, permitimos que navegue aunque sea PC,
+                // excepto para los intents que no funcionan.
+                // Pero como es un dashboard para Pixel, dejamos la advertencia visual.
             } else {
                 showToast(`Abriendo ${actionName}...`);
             }
